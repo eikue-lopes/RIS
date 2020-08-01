@@ -19,6 +19,6 @@ func _process(delta):
 
 func _on_item_gold_area_entered(area):
 	if area.is_in_group(game.PLAYER_GROUP):
-		game.score *= 2
+		game.score += game.score_increase_each_gold
 		get_node("sound").play()
 		global_position.y = 700

@@ -22,8 +22,8 @@ func _process(delta):
 
 func _on_spike_area_entered(area):
 	if area.is_in_group(game.PLAYER_GROUP):
-		game.lifes -= 1
-		game.score = int(game.score / 2)
+		game.lifes -= game.lifes_decrease_each_spike
+		game.score -= game.score_decrease_each_spike
 		
 		if game.lifes == 0:
 			area.set_process(false)

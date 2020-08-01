@@ -4,8 +4,8 @@ var speed = 200
 
 func _on_item_life_area_entered(area):
 	if area.is_in_group(game.PLAYER_GROUP):
-		game.lifes += 1
-		game.score += 50
+		game.lifes += game.lifes_increase_each_heart
+		game.score += game.score_increase_each_heart
 		get_node("sound").play()
 		global_position.y = 700
 
