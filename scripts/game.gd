@@ -4,10 +4,10 @@ const PLAYER_GROUP = "player"
 var aux_time_wind = 0
 
 #difficult controls...
-var spawner_interval = 0.3
+var spawner_interval = 0.5
 var interval_decrease = 0.05
 var num_spikes_for_level = 100
-var min_interval = 0.05
+var min_interval = 0.1
 var points_for_unit_time = 1
 var probability_item_life = 0.01
 var probability_item_gold = 0.50
@@ -16,7 +16,7 @@ var score_increase_each_gold = 50
 var score_increase_each_heart = 10
 var lifes_increase_each_heart = 1
 var lifes_decrease_each_spike = 1
-var score_decrease_each_spike = 100
+var score_decrease_each_spike = 10
 
 signal wind_direction_changed
 

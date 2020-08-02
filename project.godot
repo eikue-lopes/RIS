@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="RunnerInTheStorm"
+config/description="My fist game made with Godot Engine."
 run/main_scene="res://scenes/main.tscn"
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
@@ -33,8 +34,6 @@ game="*res://scripts/game.gd"
 window/size/width=640
 window/size/height=480
 window/size/resizable=false
-window/per_pixel_transparency/allowed=true
-window/per_pixel_transparency/enabled=true
 
 [input]
 
