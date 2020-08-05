@@ -6,7 +6,7 @@
 
 [node name="shower" type="CPUParticles2D"]
 amount = 3000
-lifetime = 20.0
+lifetime = 10.0
 speed_scale = 5.0
 texture = ExtResource( 1 )
 emission_shape = 2

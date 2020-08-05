@@ -7,19 +7,23 @@ onready var sprite : Sprite = get_node("sprite")
 onready var anim_player : AnimationPlayer = get_node("anim")
 onready var width = sprite.texture.get_width()
 
+
+
 var time_alive = 0
+var selected_anim = "idle"
+
 
 func _ready():
 	game.score = 0
-	game.lifes = 3
+	game.lifes = game.INITIAL_LIFES
 	set_process(true)
 
 func _process(delta):
+
 	if time_alive >= 0.1:
 		time_alive = 0
 		game.score += game.points_for_unit_time
-	
-	var anim = "idle"
+
 	var dx = 0
 	if Input.is_action_pressed("left"):
 		sprite.flip_h = true
@@ -31,12 +35,14 @@ func _process(delta):
 	if (global_position.x + (dx * speed * delta)) >= (width / 2) and (global_position.x + (dx * speed * delta)) <= (640 - width/2):
 		position += Vector2(dx,0) * speed * delta
 	
-	if dx != 0:
-		anim = "running"
+	if dx != 0 and not anim_player.is_playing():
+		selected_anim = "running"
+	elif dx == 0 and not anim_player.is_playing():
+		selected_anim = "idle"
 	
 	time_alive += delta
 	
-	anim_player.play(anim)
+	anim_player.play(selected_anim)
 	
 
 func _on_player_area_entered(area):
@@ -44,14 +50,12 @@ func _on_player_area_entered(area):
 		game.lifes -= game.lifes_decrease_each_spike
 		game.score -= game.score_decrease_each_spike
 		
-		if game.lifes == 0:
-			set_process(false)
-			get_node("anim").play("death")
+		if game.lifes <= 0:
+			selected_anim = "death"
+
 		else:
-			set_process(false)
-			get_node("anim").play("hit")
-			
-		
+			selected_anim = "hit"
+
 		area.global_position.y = 700
 		
 		camera.shake_camera()
@@ -64,3 +68,4 @@ func _on_player_area_entered(area):
 		game.score += game.score_increase_each_heart
 		get_node("sound_collect_life").play()
 		area.global_position.y = 700
+

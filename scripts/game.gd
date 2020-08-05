@@ -5,13 +5,14 @@ const SPIKES_GROUP = "SPIKES"
 const GOLDS_GROUP = "GOLDS"
 var aux_time_wind = 0
 
+const INITIAL_LIFES = 3
 #difficult controls...
 var spawner_interval = 0.5
 var interval_decrease = 0.05
 var num_spikes_for_level = 100
 var min_interval = 0.1
 var points_for_unit_time = 1
-var probability_item_life = 0.5
+var probability_item_life = 0.50
 var probability_item_gold = 0.50
 
 var score_increase_each_gold = 50
@@ -25,19 +26,18 @@ signal wind_direction_changed
 #scenario variables
 var wind_direction = 0 setget set_wind_direction
 func set_wind_direction(value):
-	print("setado")
 	wind_direction = value
 	emit_signal("wind_direction_changed")
 	
-var wind_speed = 10
-var wind_time_duration = 1
-var time_shake_camera = 5
+var wind_speed = 50
+var wind_time_duration = 0.5
+var time_shake_camera = 1
 
 var color_hit = "#f90000"
 
 #hud
 var score = 0 setget set_score
-var lifes = 3 setget set_lifes
+var lifes = INITIAL_LIFES setget set_lifes
 const MAX_LIFES = 5
 
 signal score_changed

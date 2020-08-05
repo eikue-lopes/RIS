@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://sprites/background.png" type="Texture" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -10,15 +10,41 @@
 [ext_resource path="res://scenes/shower.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/main.gd" type="Script" id=9]
 [ext_resource path="res://sprites/gui/btn_play.png" type="Texture" id=10]
-[ext_resource path="res://sprites/gui/btn_play_big.png" type="Texture" id=11]
+[ext_resource path="res://sprites/gui/arrowRight.png" type="Texture" id=11]
 [ext_resource path="res://sprites/gui/btn_pause.png" type="Texture" id=12]
-[ext_resource path="res://sprites/gui/btn_pause_big.png" type="Texture" id=13]
-[ext_resource path="res://sprites/arrowLeft.png" type="Texture" id=14]
-[ext_resource path="res://sprites/arrowRight.png" type="Texture" id=15]
+[ext_resource path="res://sprites/gui/arrowLeft.png" type="Texture" id=13]
+[ext_resource path="res://scripts/game_over_label.gd" type="Script" id=14]
 [ext_resource path="res://fonts/font-score.ttf" type="DynamicFontData" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 15
+font_data = ExtResource( 16 )
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends TouchScreenButton
+
+func play():
+	get_tree().paused = false
+	hide()
+	if game.lifes > 0:
+		get_parent().get_node(\"btn_pause\").show()
+	else:
+		game.lifes = game.INITIAL_LIFES
+		game.score = 0
+"
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends TouchScreenButton
+
+func pause():
+	get_tree().paused = true
+	get_parent().get_node(\"btn_play\").show()
+	hide()
+
+"
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
 font_data = ExtResource( 16 )
 
 [node name="main" type="Node2D"]
@@ -74,46 +100,46 @@ pause_mode = 1
 script = ExtResource( 5 )
 item_life = ExtResource( 6 )
 
-[node name="btn_play" type="TextureButton" parent="gui"]
+[node name="btn_play" type="TouchScreenButton" parent="gui"]
 pause_mode = 2
-margin_left = 269.806
-margin_top = 171.449
-margin_right = 339.806
-margin_bottom = 247.449
-grow_horizontal = 2
-grow_vertical = 2
-rect_pivot_offset = Vector2( 35, 38 )
-texture_normal = ExtResource( 10 )
-texture_hover = ExtResource( 11 )
-expand = true
-stretch_mode = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
+position = Vector2( 273.103, 166.12 )
+z_index = 1
+normal = ExtResource( 10 )
+script = SubResource( 3 )
 
-[node name="btn_pause" type="TextureButton" parent="gui"]
-margin_left = 590.817
-margin_top = 30.032
-margin_right = 626.817
-margin_bottom = 65.032
-texture_normal = ExtResource( 12 )
-texture_hover = ExtResource( 13 )
-expand = true
-stretch_mode = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="btn_pause" type="TouchScreenButton" parent="gui"]
+position = Vector2( 602.494, 21.2455 )
+normal = ExtResource( 12 )
+script = SubResource( 4 )
 
 [node name="touch_btn_left" type="TouchScreenButton" parent="gui"]
 position = Vector2( 16.8369, 392.862 )
-normal = ExtResource( 14 )
+normal = ExtResource( 13 )
 action = "left"
 visibility_mode = 1
 
 [node name="touch_btn_right" type="TouchScreenButton" parent="gui"]
 position = Vector2( 550, 392.862 )
-normal = ExtResource( 15 )
+normal = ExtResource( 11 )
 action = "right"
 visibility_mode = 1
+
+[node name="game_over_label" type="Label" parent="gui"]
+visible = false
+margin_left = 50.3455
+margin_top = 62.8768
+margin_right = 580.345
+margin_bottom = 380.877
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = 70
+text = "GAME 
+OVER"
+align = 1
+valign = 1
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="gui/btn_play" to="." method="_on_btn_play_pressed"]
 [connection signal="pressed" from="gui/btn_pause" to="." method="_on_btn_pause_pressed"]
