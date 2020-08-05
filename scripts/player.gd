@@ -19,7 +19,8 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
-
+	selected_anim = "idle"
+	
 	if time_alive >= 0.1:
 		time_alive = 0
 		game.score += game.points_for_unit_time
@@ -35,10 +36,8 @@ func _process(delta):
 	if (global_position.x + (dx * speed * delta)) >= (width / 2) and (global_position.x + (dx * speed * delta)) <= (640 - width/2):
 		position += Vector2(dx,0) * speed * delta
 	
-	if dx != 0 and not anim_player.is_playing():
+	if dx != 0:
 		selected_anim = "running"
-	elif dx == 0 and not anim_player.is_playing():
-		selected_anim = "idle"
 	
 	time_alive += delta
 	

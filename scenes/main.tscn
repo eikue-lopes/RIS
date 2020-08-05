@@ -20,7 +20,7 @@
 size = 15
 font_data = ExtResource( 16 )
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=2]
 script/source = "extends TouchScreenButton
 
 func play():
@@ -33,7 +33,7 @@ func play():
 		game.score = 0
 "
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=3]
 script/source = "extends TouchScreenButton
 
 func pause():
@@ -43,7 +43,7 @@ func pause():
 
 "
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 100
 font_data = ExtResource( 16 )
 
@@ -105,12 +105,12 @@ pause_mode = 2
 position = Vector2( 273.103, 166.12 )
 z_index = 1
 normal = ExtResource( 10 )
-script = SubResource( 3 )
+script = SubResource( 2 )
 
 [node name="btn_pause" type="TouchScreenButton" parent="gui"]
 position = Vector2( 602.494, 21.2455 )
 normal = ExtResource( 12 )
-script = SubResource( 4 )
+script = SubResource( 3 )
 
 [node name="touch_btn_left" type="TouchScreenButton" parent="gui"]
 position = Vector2( 16.8369, 392.862 )
@@ -130,7 +130,7 @@ margin_left = 50.3455
 margin_top = 62.8768
 margin_right = 580.345
 margin_bottom = 380.877
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = 70
 text = "GAME 
