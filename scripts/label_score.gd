@@ -2,7 +2,7 @@ extends Label
 
 
 func on_score_changed():
-	text = "score: " + str(game.score)
+	text = str(game.score)
 
 func _ready():
 	game.score = 0
