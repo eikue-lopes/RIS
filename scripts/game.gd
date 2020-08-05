@@ -5,7 +5,7 @@ const SPIKES_GROUP = "SPIKES"
 const GOLDS_GROUP = "GOLDS"
 var aux_time_wind = 0
 
-const INITIAL_LIFES = 3
+const INITIAL_LIFES = 1
 #difficult controls...
 var spawner_interval = 0.5
 var interval_decrease = 0.05

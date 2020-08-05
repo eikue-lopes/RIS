@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://sprites/background.png" type="Texture" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -14,36 +14,52 @@
 [ext_resource path="res://sprites/gui/btn_pause.png" type="Texture" id=12]
 [ext_resource path="res://sprites/gui/arrowLeft.png" type="Texture" id=13]
 [ext_resource path="res://scripts/game_over_label.gd" type="Script" id=14]
+[ext_resource path="res://sprites/gui/btn_restart.png" type="Texture" id=15]
 [ext_resource path="res://fonts/font-score.ttf" type="DynamicFontData" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 15
 font_data = ExtResource( 16 )
 
+[sub_resource type="GDScript" id=5]
+resource_name = "btn_restart"
+script/source = "extends TouchScreenButton
+
+func restart():
+	print(\"RESTART\")
+	get_tree().paused = false
+	hide()
+	get_parent().get_node(\"btn_pause\").show()
+	get_parent().get_node(\"game_over_label\").hide()
+	get_parent().get_parent().get_node(\"player\").set_process(true)
+"
+
 [sub_resource type="GDScript" id=2]
+resource_name = "btn_play"
 script/source = "extends TouchScreenButton
 
 func play():
 	get_tree().paused = false
 	hide()
-	if game.lifes > 0:
-		get_parent().get_node(\"btn_pause\").show()
-	else:
-		game.lifes = game.INITIAL_LIFES
-		game.score = 0
+	get_parent().get_node(\"btn_restart\").hide()
+	get_parent().get_node(\"btn_pause\").show()
+
+
 "
 
 [sub_resource type="GDScript" id=3]
+resource_name = "btn_pause"
 script/source = "extends TouchScreenButton
 
 func pause():
 	get_tree().paused = true
 	get_parent().get_node(\"btn_play\").show()
+	get_parent().get_node(\"btn_restart\").hide()
 	hide()
 
 "
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=6]
 size = 100
 font_data = ExtResource( 16 )
 
@@ -100,6 +116,13 @@ pause_mode = 1
 script = ExtResource( 5 )
 item_life = ExtResource( 6 )
 
+[node name="btn_restart" type="TouchScreenButton" parent="gui"]
+visible = false
+position = Vector2( 272.45, 168.179 )
+z_index = 1
+normal = ExtResource( 15 )
+script = SubResource( 5 )
+
 [node name="btn_play" type="TouchScreenButton" parent="gui"]
 pause_mode = 2
 position = Vector2( 273.103, 166.12 )
@@ -130,7 +153,7 @@ margin_left = 50.3455
 margin_top = 62.8768
 margin_right = 580.345
 margin_bottom = 380.877
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = 70
 text = "GAME 
@@ -141,5 +164,6 @@ script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="gui/btn_restart" to="." method="_on_btn_restart_pressed"]
 [connection signal="pressed" from="gui/btn_play" to="." method="_on_btn_play_pressed"]
 [connection signal="pressed" from="gui/btn_pause" to="." method="_on_btn_pause_pressed"]

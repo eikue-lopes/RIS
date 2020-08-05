@@ -50,9 +50,7 @@ func _on_player_area_entered(area):
 		game.score -= game.score_decrease_each_spike
 		
 		if game.lifes <= 0:
-			set_process(false)
-			get_node("sound_die").play()
-			anim_player.play("death")
+			get_parent().get_node("gui/game_over_label").game_over()
 
 		else:
 			set_process(false)
