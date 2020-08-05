@@ -50,10 +50,14 @@ func _on_player_area_entered(area):
 		game.score -= game.score_decrease_each_spike
 		
 		if game.lifes <= 0:
-			selected_anim = "death"
+			set_process(false)
+			get_node("sound_die").play()
+			anim_player.play("death")
 
 		else:
-			selected_anim = "hit"
+			set_process(false)
+			get_node("sound_hit").play()
+			anim_player.play("hit")
 
 		area.global_position.y = 700
 		
