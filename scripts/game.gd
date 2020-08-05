@@ -1,6 +1,8 @@
 extends CanvasLayer
 
-const PLAYER_GROUP = "player"
+const LIFES_GROUP = "LIFES"
+const SPIKES_GROUP = "SPIKES"
+const GOLDS_GROUP = "GOLDS"
 var aux_time_wind = 0
 
 #difficult controls...
@@ -9,7 +11,7 @@ var interval_decrease = 0.05
 var num_spikes_for_level = 100
 var min_interval = 0.1
 var points_for_unit_time = 1
-var probability_item_life = 0.01
+var probability_item_life = 0.5
 var probability_item_gold = 0.50
 
 var score_increase_each_gold = 50

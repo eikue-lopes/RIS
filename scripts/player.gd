@@ -1,5 +1,6 @@
 extends Area2D
 
+onready var camera = game.get_camera(self)
 
 var speed = 500
 onready var sprite : Sprite = get_node("sprite")
@@ -11,7 +12,6 @@ var time_alive = 0
 func _ready():
 	game.score = 0
 	game.lifes = 3
-	add_to_group("player")
 	set_process(true)
 
 func _process(delta):
@@ -38,3 +38,29 @@ func _process(delta):
 	
 	anim_player.play(anim)
 	
+
+func _on_player_area_entered(area):
+	if area.is_in_group(game.SPIKES_GROUP):
+		game.lifes -= game.lifes_decrease_each_spike
+		game.score -= game.score_decrease_each_spike
+		
+		if game.lifes == 0:
+			set_process(false)
+			get_node("anim").play("death")
+		else:
+			set_process(false)
+			get_node("anim").play("hit")
+			
+		
+		area.global_position.y = 700
+		
+		camera.shake_camera()
+	elif area.is_in_group(game.GOLDS_GROUP):
+		game.score += game.score_increase_each_gold
+		get_node("sound_collect_gold").play()
+		area.global_position.y = 700
+	elif area.is_in_group(game.LIFES_GROUP):
+		game.lifes += game.lifes_increase_each_heart
+		game.score += game.score_increase_each_heart
+		get_node("sound_collect_life").play()
+		area.global_position.y = 700
