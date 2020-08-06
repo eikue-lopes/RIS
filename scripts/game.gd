@@ -3,6 +3,7 @@ extends CanvasLayer
 const LIFES_GROUP = "LIFES"
 const SPIKES_GROUP = "SPIKES"
 const GOLDS_GROUP = "GOLDS"
+const COINS_GROUP = "COINS"
 var aux_time_wind = 0
 
 const INITIAL_LIFES = 1
@@ -14,6 +15,9 @@ var min_interval = 0.1
 var points_for_unit_time = 1
 var probability_item_life = 0.10
 var probability_item_gold = 0.50
+var probability_item_coin = 0.01
+
+const LEVEL_SHOW_COINS = 5
 
 var score_increase_each_gold = 50
 var score_increase_each_heart = 10
@@ -30,23 +34,36 @@ func set_wind_direction(value):
 	emit_signal("wind_direction_changed")
 	
 var wind_speed = 50
-var wind_time_duration = 0.5
-var time_shake_camera = 1
+var wind_time_duration = 1
+var time_shake_camera = 5
 
 var color_hit = "#f90000"
 
 #hud
 var score = 0 setget set_score
+var level = 0 setget set_level
 var lifes = INITIAL_LIFES setget set_lifes
 const MAX_LIFES = 5
 
+func reset():
+	self.lifes = self.INITIAL_LIFES
+	self.score = 0
+	self.level = 0
+	self.spawner_interval = 0.5
+
 signal score_changed
 signal lifes_changed
+signal level_changed
 
 func set_score(value):
 	if value >= 0:
 		score = value
 		emit_signal("score_changed")
+
+func set_level(value):
+	if value > 0:
+		level = value
+		emit_signal("level_changed")
 
 func set_lifes(value):
 	if value >= 0 and value <= MAX_LIFES:
@@ -67,3 +84,6 @@ func _process(delta):
 		aux_time_wind = 0
 	
 	aux_time_wind += delta
+	
+	if int(self.score / 1000) > self.level:
+		self.level = int(self.score / 1000)

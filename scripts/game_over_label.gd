@@ -8,8 +8,8 @@ func game_over():
 	
 	show()
 	get_parent().get_node("btn_restart").show()
+	get_parent().get_node("btn_pause").hide()
 	
-	game.lifes = game.INITIAL_LIFES
-	game.score = 0
+	game.reset()
 
 	

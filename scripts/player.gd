@@ -69,4 +69,7 @@ func _on_player_area_entered(area):
 		game.score += game.score_increase_each_heart
 		get_node("sound_collect_life").play()
 		area.global_position.y = 700
-
+	elif area.is_in_group(game.COINS_GROUP):
+		game.score *= 2
+		get_node("sound_collect_coin").play()
+		area.global_position.y = 700

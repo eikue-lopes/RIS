@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://animations/running.anim" type="Animation" id=1]
 [ext_resource path="res://scripts/player.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://sounds/collect_gold.wav" type="AudioStream" id=8]
 [ext_resource path="res://sounds/player_die.wav" type="AudioStream" id=9]
 [ext_resource path="res://sounds/player_hit.wav" type="AudioStream" id=10]
+[ext_resource path="res://sounds/collect_coin.wav" type="AudioStream" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.3926, 31.0661 )
@@ -45,4 +46,8 @@ volume_db = -16.0
 [node name="sound_collect_gold" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -12.0
+
+[node name="sound_collect_coin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -15.0
 [connection signal="area_entered" from="." to="." method="_on_player_area_entered"]
