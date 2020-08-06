@@ -19,14 +19,19 @@ func _process(delta):
 		get_parent().add_child(spike)
 		time = 0.0
 		count += 1
+		
 		randomize()
+		
 		var r = rand_range(0,1)
+		
 		if r <= game.probability_item_life:
 			var item_life = pre_life_item.instance()
 			get_parent().add_child(item_life)
+		
 		if r <= game.probability_item_gold:
 			var item_gold = pre_gold_item.instance()
 			get_parent().add_child(item_gold)
+		
 		if game.level >= game.LEVEL_SHOW_COINS and r <= game.probability_item_coin:
 			var item_coin = pre_coin_item.instance()
 			get_parent().add_child(item_coin)
