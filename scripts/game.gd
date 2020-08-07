@@ -15,11 +15,12 @@ var min_interval = 0.1
 var points_for_unit_time = 1
 var probability_item_life = 0.10
 var probability_item_gold = 0.50
-var probability_item_coin = 0.01
+var probability_item_coin = 0.05
 
 const LEVEL_SHOW_COINS = 5
 
 var score_increase_each_gold = 50
+var score_increase_each_coin = 500
 var score_increase_each_heart = 10
 var lifes_increase_each_heart = 1
 var lifes_decrease_each_spike = 1
