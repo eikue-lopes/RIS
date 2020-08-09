@@ -24,7 +24,7 @@ func _process(delta):
 		
 		var r = rand_range(0,1)
 		
-		if r <= game.probability_item_life:
+		if game.level >= game.LEVEL_SHOW_LIFES and r <= game.probability_item_life:
 			var item_life = pre_life_item.instance()
 			get_parent().add_child(item_life)
 		
@@ -36,7 +36,7 @@ func _process(delta):
 			var item_coin = pre_coin_item.instance()
 			get_parent().add_child(item_coin)
 		
-	if count > game.num_spikes_for_level and game.spawner_interval - game.interval_decrease > game.min_interval:
+	if count > game.num_spikes_for_interval and game.spawner_interval - game.interval_decrease > game.min_interval:
 		game.spawner_interval -= game.interval_decrease
 		count = 0
 	

@@ -7,17 +7,19 @@ const COINS_GROUP = "COINS"
 var aux_time_wind = 0
 
 const INITIAL_LIFES = 1
-#difficult controls...
+const MAX_LIFES = 5
+
 var spawner_interval = 0.5
 var interval_decrease = 0.05
-var num_spikes_for_level = 100
+var num_spikes_for_interval = 100
 var min_interval = 0.1
 var points_for_unit_time = 1
 var probability_item_life = 0.10
-var probability_item_gold = 0.50
+var probability_item_gold = 0.70
 var probability_item_coin = 0.05
 
 const LEVEL_SHOW_COINS = 5
+const LEVEL_SHOW_LIFES = 3
 
 var score_increase_each_gold = 50
 var score_increase_each_coin = 500
@@ -28,7 +30,7 @@ var score_decrease_each_spike = 10
 
 signal wind_direction_changed
 
-#scenario variables
+
 var wind_direction = 0 setget set_wind_direction
 func set_wind_direction(value):
 	wind_direction = value
@@ -36,20 +38,18 @@ func set_wind_direction(value):
 	
 var wind_speed = 50
 var wind_time_duration = 1
-var time_shake_camera = 5
-
-var color_hit = "#f90000"
+var time_shake_camera = 3
 
 #hud
 var score = 0 setget set_score
-var level = 0 setget set_level
+var level = 1 setget set_level
 var lifes = INITIAL_LIFES setget set_lifes
-const MAX_LIFES = 5
+
 
 func reset():
 	self.lifes = self.INITIAL_LIFES
 	self.score = 0
-	self.level = 0
+	self.level = 1
 	self.spawner_interval = 0.5
 
 signal score_changed
@@ -59,6 +59,9 @@ signal level_changed
 func set_score(value):
 	if value >= 0:
 		score = value
+		emit_signal("score_changed")
+	else:
+		score = 0
 		emit_signal("score_changed")
 
 func set_level(value):
