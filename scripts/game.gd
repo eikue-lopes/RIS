@@ -6,7 +6,7 @@ const GOLDS_GROUP = "GOLDS"
 const COINS_GROUP = "COINS"
 var aux_time_wind = 0
 
-const INITIAL_LIFES = 1
+const INITIAL_LIFES = 3
 const MAX_LIFES = 5
 
 var spawner_interval = 0.5
@@ -14,8 +14,8 @@ var interval_decrease = 0.05
 var num_spikes_for_interval = 100
 var min_interval = 0.1
 var points_for_unit_time = 1
-var probability_item_life = 0.10
-var probability_item_gold = 0.70
+var probability_item_life = 0.05
+var probability_item_gold = 0.75
 var probability_item_coin = 0.05
 
 const LEVEL_SHOW_COINS = 5

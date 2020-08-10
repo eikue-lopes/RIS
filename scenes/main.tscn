@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://sprites/background.png" type="Texture" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://scripts/draw_lifes.gd" type="Script" id=5]
 [ext_resource path="res://sprites/hud_life.png" type="Texture" id=6]
 [ext_resource path="res://scripts/camera.gd" type="Script" id=7]
-[ext_resource path="res://scenes/shower.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/main.gd" type="Script" id=9]
 [ext_resource path="res://sprites/gui/btn_play.png" type="Texture" id=10]
 [ext_resource path="res://sprites/gui/arrowRight.png" type="Texture" id=11]
@@ -102,10 +101,6 @@ position = Vector2( 289.867, 417.011 )
 
 [node name="items_spawner" parent="." instance=ExtResource( 3 )]
 pause_mode = 1
-
-[node name="shower" parent="." instance=ExtResource( 8 )]
-pause_mode = 2
-position = Vector2( 320, 0 )
 
 [node name="camera" type="Camera2D" parent="."]
 pause_mode = 2
