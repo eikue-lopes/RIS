@@ -91,3 +91,4 @@ func _process(delta):
 	
 	if int(self.score / 1000) > self.level:
 		self.level = int(self.score / 1000)
+	
