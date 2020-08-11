@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/items/spike/spike.png" type="Texture" id=1]
+[ext_resource path="res://scripts/items/spike.gd" type="Script" id=2]
+[ext_resource path="res://scenes/support/particles.tscn" type="PackedScene" id=3]
+
+
+
+[node name="spike" type="Area2D"]
+scale = Vector2( 0.5, 0.5 )
+gravity_distance_scale = 0.565
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.152941, 0.145098, 0.145098, 1 )
+z_index = 1
+texture = ExtResource( 1 )
+flip_v = true
+
+[node name="collision" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0.0594635, 2.47027 )
+polygon = PoolVector2Array( -0.0594635, -32.9703, 3.19054, -27.7203, 10.9405, -21.9703, 0.440536, 26.7797, -11.5595, -24.2203, -3.55946, -26.9703 )
+
+[node name="particles" parent="." instance=ExtResource( 3 )]
