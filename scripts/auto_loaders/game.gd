@@ -45,13 +45,6 @@ var score = 0 setget set_score
 var level = 1 setget set_level
 var lifes = INITIAL_LIFES setget set_lifes
 
-
-func reset():
-	self.lifes = self.INITIAL_LIFES
-	self.score = 0
-	self.level = 1
-	self.spawner_interval = 0.5
-
 signal score_changed
 signal lifes_changed
 signal level_changed

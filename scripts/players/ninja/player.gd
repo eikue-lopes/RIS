@@ -50,7 +50,8 @@ func _on_player_area_entered(area):
 		game.score -= game.score_decrease_each_spike
 		
 		if game.lifes <= 0:
-			get_parent().get_node("gui/game_over_label").game_over()
+			screen_ctrl.update_previous_and_current_screen(screen_ctrl.GAME_OVER_SCREEN)
+			get_parent().queue_free()
 
 		else:
 			set_process(false)

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/btn_restart.png-9ad3f3e104fe26507ddef552ec91bd41.stex"
+path="res://.import/arrowRight.png-a6d42c6feaf775169c1b962c9db6e0f9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/screens/game_over/buttons/btn_restart.png"
-dest_files=[ "res://.import/btn_restart.png-9ad3f3e104fe26507ddef552ec91bd41.stex" ]
+source_file="res://sprites/screens/main_screen/buttons/arrowRight.png"
+dest_files=[ "res://.import/arrowRight.png-a6d42c6feaf775169c1b962c9db6e0f9.stex" ]
 
 [params]
 

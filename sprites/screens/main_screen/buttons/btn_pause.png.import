@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hud_life.png-1c57e9a786b39b66196c6f48df860b0b.stex"
+path="res://.import/btn_pause.png-e6ca79ead9d1c5ba46c275bdafbfcbac.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/screens/main/gui/hud_life.png"
-dest_files=[ "res://.import/hud_life.png-1c57e9a786b39b66196c6f48df860b0b.stex" ]
+source_file="res://sprites/screens/main_screen/buttons/btn_pause.png"
+dest_files=[ "res://.import/btn_pause.png-e6ca79ead9d1c5ba46c275bdafbfcbac.stex" ]
 
 [params]
 

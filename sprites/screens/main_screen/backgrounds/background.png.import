@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arrowLeft.png-54325e36d4aaca61145f38f79b7b5340.stex"
+path="res://.import/background.png-d05a3a6061d89319246e2e099763f95d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/screens/main/buttons/arrowLeft.png"
-dest_files=[ "res://.import/arrowLeft.png-54325e36d4aaca61145f38f79b7b5340.stex" ]
+source_file="res://sprites/screens/main_screen/backgrounds/background.png"
+dest_files=[ "res://.import/background.png-d05a3a6061d89319246e2e099763f95d.stex" ]
 
 [params]
 

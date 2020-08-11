@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background.png-adbecea50d1a2d47de04ec527f3fda02.stex"
+path="res://.import/hud_life.png-ff7ec902fa716937e5e95f7025a7bd77.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/screens/main/backgrounds/background.png"
-dest_files=[ "res://.import/background.png-adbecea50d1a2d47de04ec527f3fda02.stex" ]
+source_file="res://sprites/screens/main_screen/gui/hud_life.png"
+dest_files=[ "res://.import/hud_life.png-ff7ec902fa716937e5e95f7025a7bd77.stex" ]
 
 [params]
 

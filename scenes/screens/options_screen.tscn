@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="options_screen" type="Node"]
+
+[node name="test" type="Label" parent="."]
+margin_left = 232.0
+margin_top = 212.0
+margin_right = 342.0
+margin_bottom = 226.0
+text = "OPTIONS SCREEN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
