@@ -18,7 +18,7 @@ _global_script_class_icons={
 config/name="RunnerInTheStorm"
 config/description="My fist game made with Godot Engine."
 run/main_scene="res://scenes/screens/screens_factory.tscn"
-config/icon="res://windows_icon.ico"
+config/icon="res://icon.png"
 config/windows_native_icon="res://windows_icon.ico"
 
 [audio]

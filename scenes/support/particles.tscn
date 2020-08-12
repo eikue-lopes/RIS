@@ -1,9 +1,9 @@
 [gd_scene format=2]
 
 [node name="particles" type="CPUParticles2D"]
-position = Vector2( 0, -20 )
-amount = 50
-lifetime = 0.5
+scale = Vector2( 1.5, 1.5 )
+amount = 15
+lifetime = 0.25
 speed_scale = 0.5
 emission_shape = 1
 emission_sphere_radius = 5.0

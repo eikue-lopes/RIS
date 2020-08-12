@@ -5,10 +5,6 @@
 [ext_resource path="res://scenes/support/particles.tscn" type="PackedScene" id=3]
 [ext_resource path="res://animations/items/pulse_item.anim" type="Animation" id=4]
 
-
-
-
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.79717
 
@@ -27,6 +23,7 @@ texture = ExtResource( 1 )
 anims/pulse = ExtResource( 4 )
 
 [node name="particles" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -13 )
 lifetime = 0.3
 scale_amount = 4.0
 color = Color( 0.968627, 0.52549, 0.00784314, 1 )

@@ -65,8 +65,8 @@ script = ExtResource( 15 )
 
 [node name="bg" type="Sprite" parent="."]
 pause_mode = 1
-position = Vector2( 320, 240 )
 texture = ExtResource( 6 )
+centered = false
 
 [node name="anim" type="AnimationPlayer" parent="bg"]
 pause_mode = 1
