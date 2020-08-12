@@ -42,12 +42,14 @@ var time_shake_camera = 3
 
 #hud
 var score = 0 setget set_score
+var high_score = 0 setget set_high_score
 var level = 1 setget set_level
 var lifes = INITIAL_LIFES setget set_lifes
 
 signal score_changed
 signal lifes_changed
 signal level_changed
+signal high_score_changed
 
 func set_score(value):
 	if value >= 0:
@@ -56,6 +58,10 @@ func set_score(value):
 	else:
 		score = 0
 		emit_signal("score_changed")
+
+func set_high_score(value):
+	high_score = value
+	emit_signal("high_score_changed")
 
 func set_level(value):
 	if value > 0:

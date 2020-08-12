@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://animations/screens/main/dia_noite.anim" type="Animation" id=1]
 [ext_resource path="res://animations/screens/main/level_up_label.anim" type="Animation" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://scripts/screens/main/label_score.gd" type="Script" id=14]
 [ext_resource path="res://scripts/screens/main/main.gd" type="Script" id=15]
 [ext_resource path="res://scripts/screens/main/label_level.gd" type="Script" id=16]
+[ext_resource path="res://scripts/screens/main/high_score_label.gd" type="Script" id=17]
 
 [sub_resource type="GDScript" id=1]
 resource_name = "dia_noite_anim"
@@ -33,17 +34,20 @@ font_data = ExtResource( 11 )
 use_filter = true
 font_data = ExtResource( 11 )
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 250, 240 )
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 11 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 250, 240 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 250, 240 )
+
+[sub_resource type="DynamicFont" id=7]
 size = 15
 font_data = ExtResource( 11 )
 
-[sub_resource type="GDScript" id=7]
+[sub_resource type="GDScript" id=8]
 script/source = "extends Label
 
 func level_up():
@@ -91,7 +95,7 @@ pause_mode = 1
 
 [node name="score_label" type="Label" parent="gui/HUD"]
 pause_mode = 1
-margin_left = 380.0
+margin_left = 510.0
 margin_top = 3.0
 margin_right = 637.0
 margin_bottom = 31.0
@@ -106,15 +110,29 @@ __meta__ = {
 
 [node name="level_label" type="Label" parent="gui/HUD"]
 pause_mode = 1
-margin_left = 120.0
-margin_top = 3.0
-margin_right = 360.0
-margin_bottom = 33.0
+margin_left = 160.0
+margin_top = 1.0
+margin_right = 257.0
+margin_bottom = 31.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "level 1"
-align = 2
+valign = 1
 script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="high_score_label" type="Label" parent="gui/HUD"]
+pause_mode = 1
+margin_left = 370.0
+margin_top = 3.0
+margin_right = 578.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 4 )
+text = "hi-score 0"
+valign = 1
+script = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -133,7 +151,7 @@ normal = ExtResource( 8 )
 pause_mode = 1
 position = Vector2( 24.7417, 215.864 )
 normal = ExtResource( 9 )
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 action = "left"
 visibility_mode = 1
 
@@ -141,7 +159,7 @@ visibility_mode = 1
 pause_mode = 1
 position = Vector2( 566.649, 216.859 )
 normal = ExtResource( 7 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 action = "right"
 visibility_mode = 1
 
@@ -153,11 +171,11 @@ margin_bottom = 485.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_pivot_offset = Vector2( 320, 240 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.968627, 0.996078, 0.00392157, 1 )
 align = 1
 valign = 1
-script = SubResource( 7 )
+script = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
