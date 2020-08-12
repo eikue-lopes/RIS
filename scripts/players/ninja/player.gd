@@ -50,8 +50,10 @@ func _on_player_area_entered(area):
 		game.score -= game.score_decrease_each_spike
 		
 		if game.lifes <= 0:
+			set_process(false)
+			get_node("sound_die").play()
+			get_node("anim").play("death")
 			screen_ctrl.update_previous_and_current_screen(screen_ctrl.GAME_OVER_SCREEN)
-			get_parent().queue_free()
 
 		else:
 			set_process(false)
