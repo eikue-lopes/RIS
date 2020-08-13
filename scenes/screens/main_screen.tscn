@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://animations/screens/main/dia_noite.anim" type="Animation" id=1]
 [ext_resource path="res://animations/screens/main/level_up_label.anim" type="Animation" id=2]
@@ -17,6 +17,10 @@
 [ext_resource path="res://scripts/screens/main/main.gd" type="Script" id=15]
 [ext_resource path="res://scripts/screens/main/label_level.gd" type="Script" id=16]
 [ext_resource path="res://scripts/screens/main/high_score_label.gd" type="Script" id=17]
+[ext_resource path="res://sounds/screens/main/broke_high_score.wav" type="AudioStream" id=18]
+[ext_resource path="res://animations/screens/main/broke_high_score.anim" type="Animation" id=19]
+[ext_resource path="res://scripts/screens/main/broke_high_score_label.gd" type="Script" id=20]
+[ext_resource path="res://sounds/screens/main/bg_music.ogg" type="AudioStream" id=21]
 
 [sub_resource type="GDScript" id=1]
 resource_name = "dia_noite_anim"
@@ -50,14 +54,19 @@ font_data = ExtResource( 11 )
 [sub_resource type="GDScript" id=8]
 script/source = "extends Label
 
-func level_up():
-	if game.level > 1:
-		text = \"LEVEL \" + str(game.level)
-		get_node(\"anim\").play(\"level_up_label\")
 
 func _ready():
 	game.connect(\"level_changed\",self,\"level_up\")
+
+func level_up():
+	if game.level > 1:
+		text = \"LEVEL \" + str(game.level)
+		get_parent().get_node(\"anim\").play(\"level_up_label\")
 "
+
+[sub_resource type="DynamicFont" id=9]
+size = 15
+font_data = ExtResource( 11 )
 
 [node name="main_screen" type="Node2D"]
 pause_mode = 2
@@ -65,6 +74,7 @@ script = ExtResource( 15 )
 
 [node name="bg" type="Sprite" parent="."]
 pause_mode = 1
+modulate = Color( 0.996824, 0.99681, 0.99681, 1 )
 texture = ExtResource( 6 )
 centered = false
 
@@ -73,8 +83,14 @@ pause_mode = 1
 anims/dia_noite = ExtResource( 1 )
 script = SubResource( 1 )
 
+[node name="bg_music" type="AudioStreamPlayer" parent="bg"]
+stream = ExtResource( 21 )
+volume_db = -10.0
+autoplay = true
+
 [node name="player" parent="." instance=ExtResource( 4 )]
 pause_mode = 1
+modulate = Color( 0.996824, 0.99681, 0.99681, 1 )
 position = Vector2( 289.867, 417.011 )
 
 [node name="items_spawner" parent="." instance=ExtResource( 3 )]
@@ -165,6 +181,7 @@ visibility_mode = 1
 
 [node name="level_up_label" type="Label" parent="gui"]
 pause_mode = 1
+visible = false
 margin_top = 5.0
 margin_right = 640.0
 margin_bottom = 485.0
@@ -173,6 +190,7 @@ grow_vertical = 2
 rect_pivot_offset = Vector2( 320, 240 )
 custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.968627, 0.996078, 0.00392157, 1 )
+text = "level 1"
 align = 1
 valign = 1
 script = SubResource( 8 )
@@ -180,12 +198,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="anim" type="AnimationPlayer" parent="gui/level_up_label"]
-anims/level_up_label = ExtResource( 2 )
-
 [node name="sound" type="AudioStreamPlayer" parent="gui/level_up_label"]
 stream = ExtResource( 10 )
 volume_db = -25.0
 mix_target = 1
+
+[node name="broke_high_score_label" type="Label" parent="gui"]
+visible = false
+margin_right = 644.0
+margin_bottom = 483.0
+rect_pivot_offset = Vector2( 320, 240 )
+custom_fonts/font = SubResource( 9 )
+text = "HIGH SCORE"
+align = 1
+valign = 1
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sound2" type="AudioStreamPlayer" parent="gui/broke_high_score_label"]
+stream = ExtResource( 18 )
+volume_db = -5.0
+
+[node name="anim" type="AnimationPlayer" parent="gui"]
+anims/broke_high_score = ExtResource( 19 )
+anims/level_up_label = ExtResource( 2 )
 [connection signal="ready" from="bg/anim" to="bg/anim" method="_on_anim_ready"]
 [connection signal="pressed" from="gui/btn_pause" to="." method="_on_btn_pause_pressed"]

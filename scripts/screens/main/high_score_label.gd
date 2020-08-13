@@ -33,7 +33,6 @@ func _process(delta):
 		game.high_score = game.score
 		save_high_score()
 
-
 func on_high_score_changed():
 	if game.high_score >= 10000:
 		text = "hi-score " + str(game.high_score / 1000) + "K"

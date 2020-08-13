@@ -50,14 +50,15 @@ signal score_changed
 signal lifes_changed
 signal level_changed
 signal high_score_changed
+signal broke_high_score
 
 func set_score(value):
 	if value >= 0:
 		score = value
-		emit_signal("score_changed")
 	else:
 		score = 0
-		emit_signal("score_changed")
+	
+	emit_signal("score_changed")
 
 func set_high_score(value):
 	high_score = value
@@ -90,4 +91,7 @@ func _process(delta):
 	
 	if int(self.score / 1000) > self.level:
 		self.level = int(self.score / 1000)
+	
+	if self.score > self.high_score:
+		emit_signal("broke_high_score")
 	
