@@ -29,6 +29,7 @@ default_bus_layout=""
 
 game="*res://scripts/auto_loaders/game.gd"
 screen_ctrl="*res://scripts/auto_loaders/screens_controller.gd"
+preloads="*res://scripts/auto_loaders/preloads.gd"
 
 [display]
 

@@ -1,11 +1,9 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=27 format=2]
 
-[ext_resource path="res://animations/screens/main/dia_noite.anim" type="Animation" id=1]
 [ext_resource path="res://animations/screens/main/level_up_label.anim" type="Animation" id=2]
 [ext_resource path="res://scenes/support/items_spawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/players/ninja.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sprites/screens/main_screen/gui/hud_life.png" type="Texture" id=5]
-[ext_resource path="res://sprites/screens/shared_images/background.png" type="Texture" id=6]
 [ext_resource path="res://sprites/screens/main_screen/buttons/arrowRight.png" type="Texture" id=7]
 [ext_resource path="res://sprites/screens/main_screen/buttons/btn_pause.png" type="Texture" id=8]
 [ext_resource path="res://sprites/screens/main_screen/buttons/arrowLeft.png" type="Texture" id=9]
@@ -20,38 +18,29 @@
 [ext_resource path="res://sounds/screens/main/broke_high_score.wav" type="AudioStream" id=18]
 [ext_resource path="res://animations/screens/main/broke_high_score.anim" type="Animation" id=19]
 [ext_resource path="res://scripts/screens/main/broke_high_score_label.gd" type="Script" id=20]
-[ext_resource path="res://sounds/screens/main/bg_music.ogg" type="AudioStream" id=21]
 
-[sub_resource type="GDScript" id=1]
-resource_name = "dia_noite_anim"
-script/source = "extends AnimationPlayer
-
-func _on_anim_ready():
-	play(\"dia_noite\")
-"
+[sub_resource type="DynamicFont" id=1]
+use_filter = true
+font_data = ExtResource( 11 )
 
 [sub_resource type="DynamicFont" id=2]
 use_filter = true
 font_data = ExtResource( 11 )
 
 [sub_resource type="DynamicFont" id=3]
-use_filter = true
 font_data = ExtResource( 11 )
 
-[sub_resource type="DynamicFont" id=4]
-font_data = ExtResource( 11 )
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 250, 240 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 250, 240 )
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 250, 240 )
-
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=6]
 size = 15
 font_data = ExtResource( 11 )
 
-[sub_resource type="GDScript" id=8]
+[sub_resource type="GDScript" id=7]
 script/source = "extends Label
 
 
@@ -64,29 +53,13 @@ func level_up():
 		get_parent().get_node(\"anim\").play(\"level_up_label\")
 "
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=8]
 size = 15
 font_data = ExtResource( 11 )
 
 [node name="main_screen" type="Node2D"]
 pause_mode = 2
 script = ExtResource( 15 )
-
-[node name="bg" type="Sprite" parent="."]
-pause_mode = 1
-modulate = Color( 0.996824, 0.99681, 0.99681, 1 )
-texture = ExtResource( 6 )
-centered = false
-
-[node name="anim" type="AnimationPlayer" parent="bg"]
-pause_mode = 1
-anims/dia_noite = ExtResource( 1 )
-script = SubResource( 1 )
-
-[node name="bg_music" type="AudioStreamPlayer" parent="bg"]
-stream = ExtResource( 21 )
-volume_db = -10.0
-autoplay = true
 
 [node name="player" parent="." instance=ExtResource( 4 )]
 pause_mode = 1
@@ -115,7 +88,7 @@ margin_left = 510.0
 margin_top = 3.0
 margin_right = 637.0
 margin_bottom = 31.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "0"
 align = 2
@@ -130,7 +103,7 @@ margin_left = 160.0
 margin_top = 1.0
 margin_right = 257.0
 margin_bottom = 31.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "level 1"
 valign = 1
@@ -145,7 +118,7 @@ margin_left = 370.0
 margin_top = 3.0
 margin_right = 578.0
 margin_bottom = 24.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "hi-score 0"
 valign = 1
 script = ExtResource( 17 )
@@ -167,7 +140,7 @@ normal = ExtResource( 8 )
 pause_mode = 1
 position = Vector2( 24.7417, 215.864 )
 normal = ExtResource( 9 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 action = "left"
 visibility_mode = 1
 
@@ -175,7 +148,7 @@ visibility_mode = 1
 pause_mode = 1
 position = Vector2( 566.649, 216.859 )
 normal = ExtResource( 7 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 action = "right"
 visibility_mode = 1
 
@@ -188,12 +161,12 @@ margin_bottom = 485.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_pivot_offset = Vector2( 320, 240 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.968627, 0.996078, 0.00392157, 1 )
 text = "level 1"
 align = 1
 valign = 1
-script = SubResource( 8 )
+script = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -208,7 +181,7 @@ visible = false
 margin_right = 644.0
 margin_bottom = 483.0
 rect_pivot_offset = Vector2( 320, 240 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 text = "HIGH SCORE"
 align = 1
 valign = 1
@@ -224,5 +197,4 @@ volume_db = -5.0
 [node name="anim" type="AnimationPlayer" parent="gui"]
 anims/broke_high_score = ExtResource( 19 )
 anims/level_up_label = ExtResource( 2 )
-[connection signal="ready" from="bg/anim" to="bg/anim" method="_on_anim_ready"]
 [connection signal="pressed" from="gui/btn_pause" to="." method="_on_btn_pause_pressed"]

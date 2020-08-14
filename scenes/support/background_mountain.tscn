@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://animations/screens/main/dia_noite.anim" type="Animation" id=1]
+[ext_resource path="res://sounds/screens/main/bg_music_mountain.ogg" type="AudioStream" id=2]
+[ext_resource path="res://sprites/screens/shared_images/background_mountains.png" type="Texture" id=3]
+
+[sub_resource type="GDScript" id=1]
+resource_name = "dia_noite_anim"
+script/source = "extends AnimationPlayer
+
+func _on_anim_ready():
+	play(\"dia_noite\")
+"
+
+[node name="bg" type="Sprite"]
+pause_mode = 1
+modulate = Color( 0.996824, 0.99681, 0.99681, 1 )
+z_index = -1
+texture = ExtResource( 3 )
+centered = false
+
+[node name="anim" type="AnimationPlayer" parent="."]
+pause_mode = 1
+anims/dia_noite = ExtResource( 1 )
+script = SubResource( 1 )
+
+[node name="bg_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -20.0
+autoplay = true
+[connection signal="ready" from="anim" to="anim" method="_on_anim_ready"]

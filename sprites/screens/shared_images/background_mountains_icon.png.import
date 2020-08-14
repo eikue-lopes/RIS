@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background.png-98289422cd7d93003950872a7b97021f.stex"
+path="res://.import/background_mountains_icon.png-5eb257674838e7b7c3362276408678f9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://background.png"
-dest_files=[ "res://.import/background.png-98289422cd7d93003950872a7b97021f.stex" ]
+source_file="res://sprites/screens/shared_images/background_mountains_icon.png"
+dest_files=[ "res://.import/background_mountains_icon.png-5eb257674838e7b7c3362276408678f9.stex" ]
 
 [params]
 

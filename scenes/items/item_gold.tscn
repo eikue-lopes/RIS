@@ -25,5 +25,5 @@ anims/pulse = ExtResource( 4 )
 [node name="particles" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -13 )
 lifetime = 0.3
-scale_amount = 4.0
+scale_amount = 3.0
 color = Color( 0.968627, 0.52549, 0.00784314, 1 )

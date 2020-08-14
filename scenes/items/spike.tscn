@@ -6,7 +6,6 @@
 
 [node name="spike" type="Area2D"]
 scale = Vector2( 0.5, 0.5 )
-gravity_distance_scale = 0.565
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -21,3 +20,4 @@ polygon = PoolVector2Array( -0.0594635, -32.9703, 3.19054, -27.7203, 10.9405, -2
 
 [node name="particles" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -30 )
+scale_amount = 5.0

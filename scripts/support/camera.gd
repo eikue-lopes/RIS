@@ -1,8 +1,5 @@
 extends Camera2D
 
-onready var bg = get_parent().get_node("bg")
-onready var player = get_parent().get_node("player")
-
 var shake = 0
 
 func _ready():

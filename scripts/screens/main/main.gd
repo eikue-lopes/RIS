@@ -2,6 +2,8 @@ extends Node2D
 
 func _ready():
 	game.spawner_interval = 0.5
+	var bg = preloads.bg_selected.instance()
+	add_child(bg)
 
 func pause():
 	get_tree().paused = true

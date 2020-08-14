@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bg_music_desert.ogg-b341bebd0d4a29a68d8f81b0ecda431f.oggstr"
+
+[deps]
+
+source_file="res://sounds/screens/main/bg_music_desert.ogg"
+dest_files=[ "res://.import/bg_music_desert.ogg-b341bebd0d4a29a68d8f81b0ecda431f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
