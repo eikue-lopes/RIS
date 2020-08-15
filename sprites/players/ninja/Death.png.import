@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Idle.png-9025075887f54b2ab31c0458d390764b.stex"
+path="res://.import/Death.png-35732819b1edd27d8af0b723453ea7a7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/players/ninja/Idle.png"
-dest_files=[ "res://.import/Idle.png-9025075887f54b2ab31c0458d390764b.stex" ]
+source_file="res://sprites/players/ninja/Death.png"
+dest_files=[ "res://.import/Death.png-35732819b1edd27d8af0b723453ea7a7.stex" ]
 
 [params]
 

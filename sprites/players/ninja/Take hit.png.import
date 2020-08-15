@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Idle.png-9025075887f54b2ab31c0458d390764b.stex"
+path="res://.import/Take hit.png-7b66211ea5a2db702b254a27a9844f9f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/players/ninja/Idle.png"
-dest_files=[ "res://.import/Idle.png-9025075887f54b2ab31c0458d390764b.stex" ]
+source_file="res://sprites/players/ninja/Take hit.png"
+dest_files=[ "res://.import/Take hit.png-7b66211ea5a2db702b254a27a9844f9f.stex" ]
 
 [params]
 

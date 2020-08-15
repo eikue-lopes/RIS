@@ -6,6 +6,7 @@ var pre_main_screen  = preload("res://scenes/screens/main_screen.tscn")
 var pre_pause_screen = preload("res://scenes/screens/pause_screen.tscn")
 var pre_game_over_screen = preload("res://scenes/screens/game_over_screen.tscn")
 var pre_options_screen = preload("res://scenes/screens/options_screen.tscn")
+
 func _ready():
 	screen_ctrl.connect("current_screen_changed",self,"on_screen_changed")
 	screen_ctrl.update_previous_and_current_screen(screen_ctrl.START_SCREEN)

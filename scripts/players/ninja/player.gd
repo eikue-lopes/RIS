@@ -7,8 +7,6 @@ onready var sprite : Sprite = get_node("sprite")
 onready var anim_player : AnimationPlayer = get_node("anim")
 onready var width = sprite.texture.get_width()
 
-
-
 var time_alive = 0
 var selected_anim = "idle"
 
@@ -33,8 +31,8 @@ func _process(delta):
 		sprite.flip_h = false
 		dx = 1
 
-	if (global_position.x + (dx * speed * delta)) >= (width / 2) and (global_position.x + (dx * speed * delta)) <= (640 - width/2):
-		position += Vector2(dx,0) * speed * delta
+	if (global_position.x + (dx * speed * delta)) >= 10 and (global_position.x + (dx * speed * delta)) <= 630:
+		global_position += Vector2(dx,0) * speed * delta
 	
 	if dx != 0:
 		selected_anim = "running"

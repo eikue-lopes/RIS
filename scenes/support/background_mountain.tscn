@@ -14,7 +14,6 @@ func _on_anim_ready():
 
 [node name="bg" type="Sprite"]
 pause_mode = 1
-modulate = Color( 0.996824, 0.99681, 0.99681, 1 )
 z_index = -1
 texture = ExtResource( 3 )
 centered = false

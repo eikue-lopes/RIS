@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Idle.png-9025075887f54b2ab31c0458d390764b.stex"
+path="res://.import/background_city.png-5015d6cbd06ac03543744322c5821ec7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/players/ninja/Idle.png"
-dest_files=[ "res://.import/Idle.png-9025075887f54b2ab31c0458d390764b.stex" ]
+source_file="res://sprites/screens/shared_images/background_city.png"
+dest_files=[ "res://.import/background_city.png-5015d6cbd06ac03543744322c5821ec7.stex" ]
 
 [params]
 

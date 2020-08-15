@@ -1,11 +1,10 @@
 extends Node
 
 func unpause():
-	get_parent().get_node("main_screen").get_tree().paused = false
+	get_parent().get_tree().paused = false
 
 func _on_btn_play_pressed():
 	unpause()
-	print("odfsdkfdlfjdkfjsdfl")
 	queue_free()
 
 
