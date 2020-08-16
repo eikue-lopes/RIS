@@ -1,16 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://animations/screens/main/dia_noite.anim" type="Animation" id=1]
 [ext_resource path="res://sounds/screens/main/bg_music_desert.ogg" type="AudioStream" id=2]
 [ext_resource path="res://sprites/screens/shared_images/background_city.png" type="Texture" id=3]
-
+[ext_resource path="res://sprites/screens/shared_images/city_foreground_texture_for_light2D.png" type="Texture" id=4]
+[ext_resource path="res://animations/screens/main/dia_noite_city.anim" type="Animation" id=5]
 
 [sub_resource type="GDScript" id=1]
 resource_name = "dia_noite_anim"
 script/source = "extends AnimationPlayer
 
 func _on_anim_ready():
-	play(\"dia_noite\")
+	play(\"dia_noite_city\")
 "
 
 [node name="bg" type="Sprite"]
@@ -22,10 +23,17 @@ centered = false
 [node name="anim" type="AnimationPlayer" parent="."]
 pause_mode = 1
 anims/dia_noite = ExtResource( 1 )
+anims/dia_noite_city = ExtResource( 5 )
 script = SubResource( 1 )
 
 [node name="bg_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 volume_db = -10.0
 autoplay = true
+
+[node name="light" type="Light2D" parent="."]
+position = Vector2( 320, 240 )
+texture = ExtResource( 4 )
+energy = 0.0
+range_z_max = -1
 [connection signal="ready" from="anim" to="anim" method="_on_anim_ready"]
